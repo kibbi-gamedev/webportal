@@ -13,7 +13,7 @@ export default function Login() {
   useEffect(() => {
     // Check if user is already logged in
     if (localStorage.getItem("isLoggedIn")) {
-      navigate("/home"); // Redirect to home if logged in
+      navigate("/webportal/"); // Redirect to home with correct GitHub Pages path
     }
   }, [navigate]);
 
@@ -26,7 +26,7 @@ export default function Login() {
   const handleSubmit = () => {
     if (pin === correctPIN) {
       localStorage.setItem("isLoggedIn", "true"); // Save login state
-      navigate("/home");
+      navigate("/webportal/"); // Redirect to home with correct GitHub Pages path
     } else {
       setError(true);
       setTimeout(() => {
