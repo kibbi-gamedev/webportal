@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Login from "./Login";
-import WebPortal from "./WebPortal"; // Replace with your actual WebPortal component
+import Login from "./pages/Login";
+import WebPortal from "./pages/WebPortal"; // Replace with your actual WebPortal component
 
 function App() {
   return (
