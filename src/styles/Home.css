@@ -1,0 +1,14 @@
+.home-container {
+    background: linear-gradient(135deg, #74b9ff, #a29bfe);
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  

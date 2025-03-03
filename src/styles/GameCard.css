@@ -1,0 +1,30 @@
+.game-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 15px;
+    transition: 0.3s;
+  }
+  
+  .game-card img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .game-card h2 {
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .play-btn {
+    display: inline-block;
+    background: linear-gradient(45deg, #ff4757, #ff6b81);
+    color: white;
+    padding: 8px 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  

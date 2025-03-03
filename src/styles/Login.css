@@ -1,0 +1,52 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+  }
+  
+  .pin-display {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .numpad {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    gap: 10px;
+  }
+  
+  .numpad button {
+    width: 80px;
+    height: 80px;
+    font-size: 24px;
+    border: none;
+    background: white;
+    color: #333;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .numpad button:hover {
+    background: #f0f0f0;
+  }
+  
+  .submit-btn {
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-size: 20px;
+    border: none;
+    background: #ff5722;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover {
+    background: #e64a19;
+  }
+  
