@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
-import WebPortal from "./pages/WebPortal"; // Replace with your actual WebPortal component
+import WebPortal from "./pages/WebPortal";
 
 function App() {
   // Check if the user is logged in
   const isLoggedIn = localStorage.getItem("isLoggedIn");
 
   return (
-    <Router>
+    <Router basename="/webportal">
       <Routes>
         {/* Default route: if logged in, go to /webportal, else go to /login */}
         <Route
