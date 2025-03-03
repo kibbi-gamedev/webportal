@@ -9,12 +9,12 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Redirect to WebPortal if already logged in */}
+        {/* Default route: if logged in, go to /webportal, else go to /login */}
         <Route
           path="/"
           element={isLoggedIn ? <Navigate to="/webportal" /> : <Navigate to="/login" />}
         />
-        
+
         {/* Login Route */}
         <Route path="/login" element={<Login />} />
 
