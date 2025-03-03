@@ -8,30 +8,36 @@ const correctPIN = "417";
 export default function Login() {
   const [pin, setPin] = useState("");
   const [error, setError] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false); // Prevent multiple submits
   const navigate = useNavigate();
 
   useEffect(() => {
     // Check if user is already logged in
     if (localStorage.getItem("isLoggedIn")) {
-      navigate("/webportal/"); // Redirect to home with correct GitHub Pages path
+      navigate("/webportal"); // Make sure the path is correct
     }
   }, [navigate]);
 
   const handleNumberClick = (num) => {
     if (pin.length < 3) {
-      setPin(pin + num);
+      setPin((prevPin) => prevPin + num); // Append number to pin
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    if (isSubmitting) return; // Prevent multiple submits while waiting for a response
+
+    setIsSubmitting(true);
+
     if (pin === correctPIN) {
       localStorage.setItem("isLoggedIn", "true"); // Save login state
-      navigate("/webportal/"); // Redirect to home with correct GitHub Pages path
+      navigate("/webportal"); // Redirect to home page
     } else {
       setError(true);
       setTimeout(() => {
         setError(false);
-        setPin("");
+        setPin(""); // Clear pin after failed attempt
+        setIsSubmitting(false); // Allow for another attempt
       }, 800);
     }
   };
@@ -66,6 +72,7 @@ export default function Login() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={handleSubmit}
+        disabled={isSubmitting} // Disable submit button while submitting
       >
         Enter
       </motion.button>
