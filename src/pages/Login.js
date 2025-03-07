@@ -3,31 +3,29 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import "../styles/Login.css";
 
-const correctPIN = "417";  // Default PIN
+const correctPIN = "12345"; // Updated PIN
 
 export default function Login() {
   const [pin, setPin] = useState("");
   const [error, setError] = useState(false);
   const navigate = useNavigate();
 
-  // Check if the user is already logged in when the page loads
   useEffect(() => {
-    const isLoggedIn = localStorage.getItem("isLoggedIn");
-    if (isLoggedIn) {
-      navigate("/webportal"); // Redirect to web portal if logged in
+    if (localStorage.getItem("isLoggedIn") === "true") {
+      navigate("/webportal", { replace: true }); // Redirect to WebPortal if already logged in
     }
   }, [navigate]);
 
   const handleNumberClick = (num) => {
-    if (pin.length < 3) {
-      setPin(pin + num);
+    if (pin.length < 5) {
+      setPin((prev) => prev + num);
     }
   };
 
   const handleSubmit = () => {
     if (pin === correctPIN) {
-      localStorage.setItem("isLoggedIn", "true"); // Save login state in localStorage
-      navigate("/webportal"); // Redirect to the web portal
+      localStorage.setItem("isLoggedIn", "true");
+      navigate("/webportal", { replace: true }); // Prevent back button issues
     } else {
       setError(true);
       setTimeout(() => {
@@ -41,7 +39,7 @@ export default function Login() {
     <div className="login-container">
       <motion.div
         className="pin-display"
-        animate={error ? { x: [-10, 10, -10, 10, 0] } : {}} // Shake animation on error
+        animate={error ? { x: [-10, 10, -10, 10, 0] } : {}}
       >
         {pin.split("").map((_, i) => (
           <motion.span key={i} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -51,7 +49,7 @@ export default function Login() {
       </motion.div>
 
       <div className="numpad">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((num) => (
           <motion.button
             key={num}
             whileTap={{ scale: 0.8 }}

@@ -1,24 +1,21 @@
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
-import WebPortal from "./pages/WebPortal"; // Replace with your actual WebPortal component
+import WebPortal from "./pages/WebPortal";
 
 function App() {
-  // Check if the user is logged in
-  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  // Convert the string value from localStorage to a boolean
+  const isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn") || "false");
 
   return (
-    <Router basename="/webportal">  {/* Set basename for GitHub Pages */}
+    <Router basename="/webportal">  {/* Ensure correct routing on GitHub Pages */}
       <Routes>
-        {/* Default route: if logged in, go to /webportal, else go to /login */}
-        <Route
-          path="/"
-          element={isLoggedIn ? <Navigate to="/webportal" /> : <Navigate to="/login" />}
-        />
+        {/* Redirect to WebPortal if logged in, else go to Login */}
+        <Route path="/" element={isLoggedIn ? <Navigate to="/webportal" /> : <Navigate to="/login" />} />
 
-        {/* Login Route */}
+        {/* Login Page */}
         <Route path="/login" element={<Login />} />
 
-        {/* WebPortal Route */}
+        {/* Web Portal Page */}
         <Route path="/webportal" element={<WebPortal />} />
       </Routes>
     </Router>
