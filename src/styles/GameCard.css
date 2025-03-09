@@ -6,39 +6,62 @@
   justify-items: center;
 }
 
-/* Make sure game cards are responsive */
+/* Make game cards more fun and bouncy */
 .game-card {
   width: 100%;
-  max-width: 300px;
-  background: white;
+  max-width: 280px;
+  background: linear-gradient(145deg, #ffec61, #ff8a65);
   border-radius: 20px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
   text-align: center;
   padding: 15px;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: 3px solid #ff6b6b;
 }
 
-/* Adjust text size based on screen */
+.game-card:hover {
+  transform: scale(1.05) rotate(2deg); /* Fun hover effect */
+}
+
+/* Make text more fun and playful */
 .game-card h2 {
-  font-size: 1.2rem; /* Auto scales */
+  font-size: 1.3rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  color: #222;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* Image scales properly */
+/* Game image with rounded corners */
 .game-card img {
   width: 100%;
   border-radius: 15px;
   height: auto;
 }
 
-/* Adjust button size for touch devices */
+/* Fun and colorful Play button */
 .play-btn {
-  font-size: 1rem;
+  display: inline-block;
+  background: linear-gradient(45deg, #ff4757, #ff6b81);
+  color: white;
   padding: 12px 20px;
-  border-radius: 12px;
+  margin-top: 10px;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, background 0.3s;
+}
+
+/* Fun click effect */
+.play-btn:hover {
+  background: linear-gradient(45deg, #ff6b81, #ff4757);
+  transform: scale(1.1);
 }
 
 /* Responsive Tweaks */
-@media (max-width: 768px) {  /* For Tablets */
+@media (max-width: 768px) {  
   .game-grid {
       grid-template-columns: repeat(2, minmax(150px, 1fr));
   }
@@ -47,7 +70,7 @@
   }
 }
 
-@media (max-width: 480px) { /* For Phones */
+@media (max-width: 480px) { 
   .game-grid {
       grid-template-columns: repeat(1, minmax(200px, 1fr));
   }
@@ -55,6 +78,6 @@
       max-width: 90%;
   }
   .play-btn {
-      font-size: 0.9rem;
+      font-size: 1rem;
   }
 }
