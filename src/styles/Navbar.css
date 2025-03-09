@@ -8,22 +8,38 @@
   font-family: 'Poppins', sans-serif;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   border-bottom: 4px solid #ff4757;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
 }
 
-/* Add some animation to make it playful */
+/* Animasi bounce agar navbar lebih hidup */
 .navbar h1 {
+  display: inline-block;
   animation: bounce 1.5s infinite alternate;
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Fun bounce animation */
+.navbar h1:hover {
+  transform: scale(1.05);
+}
+
+/* Animasi bounce */
 @keyframes bounce {
   0% { transform: translateY(0); }
   100% { transform: translateY(-5px); }
 }
 
-/* Adjust font size for smaller screens */
+/* Responsif untuk layar kecil */
 @media (max-width: 768px) {
   .navbar {
-      font-size: 1.3rem;
+    font-size: 1.3rem;
+    padding: 10px;
+  }
+  
+  .navbar h1 {
+    font-size: 1.2rem;
   }
 }

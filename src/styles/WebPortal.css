@@ -8,28 +8,35 @@
   align-items: center;
 }
 
+/* Perbaikan ukuran teks agar responsif */
 .welcome-message {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #ff4081;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 10px;
 }
 
+/* Grid lebih fleksibel untuk berbagai ukuran layar */
 .game-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
   max-width: 1000px;
   width: 100%;
   margin-top: 20px;
+  padding: 0 10px;
 }
 
+/* Style game card */
 .game-card {
   background: #fff;
   border-radius: 15px;
   padding: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
 }
 
 .game-card:hover {
@@ -42,8 +49,43 @@
   border-radius: 10px;
 }
 
+/* Perbaikan teks agar tidak terlalu besar di HP */
 .game-card h3 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-top: 10px;
   color: #333;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Untuk layar HP (Lebih kecil dari 600px) */
+@media (max-width: 600px) {
+  .welcome-message {
+    font-size: 1.5rem;
+    padding: 5px;
+  }
+
+  .game-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+  }
+
+  .game-card {
+    padding: 10px;
+  }
+
+  .game-card h3 {
+    font-size: 0.9rem;
+  }
+}
+
+/* Untuk layar yang lebih kecil (Tablet) */
+@media (max-width: 900px) {
+  .welcome-message {
+    font-size: 1.8rem;
+  }
+
+  .game-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
 }
