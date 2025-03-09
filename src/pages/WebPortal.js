@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import GameCard from "../components/GameCard";
+import { motion } from "framer-motion"; // Add animation library
 import "../styles/WebPortal.css";
 
 const games = [
@@ -21,12 +22,35 @@ export default function WebPortal() {
   return (
     <div className="home-container">
       <Navbar />
-      <h1 className="welcome-message">Welcome to the Web Portal</h1>
-      <div className="game-grid">
+
+      {/* Animated Welcome Message */}
+      <motion.h1 
+        className="welcome-message"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        Welcome to the Web Portal 🎮
+      </motion.h1>
+
+      {/* Animated Game Cards */}
+      <motion.div 
+        className="game-grid"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+      >
         {games.map((game, index) => (
-          <GameCard key={index} {...game} />
+          <motion.div 
+            key={index} 
+            initial={{ scale: 0.9, opacity: 0 }} 
+            animate={{ scale: 1, opacity: 1 }} 
+            transition={{ delay: index * 0.1 }}
+          >
+            <GameCard {...game} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }
