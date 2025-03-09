@@ -1,52 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+
 .login-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
-  }
-  
-  .pin-display {
-    font-size: 2rem;
-    color: white;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #ffdde1);
+    font-family: 'Comic Neue', cursive;
+    text-align: center;
+}
+
+/* PIN display */
+.pin-display {
+    font-size: 2.5rem;
+    color: #fff;
     margin-bottom: 20px;
-  }
-  
-  .numpad {
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Animated Number Pad */
+.numpad {
     display: grid;
-    grid-template-columns: repeat(3, 80px);
-    gap: 10px;
-  }
-  
-  .numpad button {
-    width: 80px;
-    height: 80px;
-    font-size: 24px;
+    grid-template-columns: repeat(3, 90px);
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.numpad button {
+    width: 90px;
+    height: 90px;
+    font-size: 28px;
+    font-weight: bold;
     border: none;
-    background: white;
-    color: #333;
+    background: linear-gradient(145deg, #ffcc33, #ffdd55);
+    color: #222;
     border-radius: 50%;
     cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  .numpad button:hover {
-    background: #f0f0f0;
-  }
-  
-  .submit-btn {
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease-in-out;
+}
+
+.numpad button:hover {
+    background: linear-gradient(145deg, #ffdd55, #ffee77);
+    transform: scale(1.1);
+}
+
+.numpad button:active {
+    transform: scale(0.9);
+}
+
+/* Submit Button */
+.submit-btn {
     margin-top: 20px;
-    padding: 10px 30px;
-    font-size: 20px;
+    padding: 15px 40px;
+    font-size: 22px;
+    font-weight: bold;
     border: none;
-    background: #ff5722;
+    background: linear-gradient(145deg, #ff4081, #ff79a5);
     color: white;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
-  }
-  
-  .submit-btn:hover {
-    background: #e64a19;
-  }
-  
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(145deg, #ff79a5, #ff99b8);
+    transform: scale(1.1);
+}
+
+.submit-btn:active {
+    transform: scale(0.9);
+}

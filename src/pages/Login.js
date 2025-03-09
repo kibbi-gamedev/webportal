@@ -5,14 +5,14 @@ import "../styles/Login.css";
 
 const correctPIN = "12345"; // Updated PIN
 
-export default function Login() {
+export default function Login({ setIsLoggedIn }) {
   const [pin, setPin] = useState("");
   const [error, setError] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (localStorage.getItem("isLoggedIn") === "true") {
-      navigate("/webportal", { replace: true }); // Redirect to WebPortal if already logged in
+      navigate("/webportal", { replace: true }); // Redirect if already logged in
     }
   }, [navigate]);
 
@@ -24,7 +24,10 @@ export default function Login() {
 
   const handleSubmit = () => {
     if (pin === correctPIN) {
+      const expiryTime = Date.now() + 2 * 60 * 60 * 1000; // 2 hours from now
       localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("expiryTime", JSON.stringify(expiryTime));
+      setIsLoggedIn(true);
       navigate("/webportal", { replace: true }); // Prevent back button issues
     } else {
       setError(true);

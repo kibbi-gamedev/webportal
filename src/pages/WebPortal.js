@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import GameCard from "../components/GameCard";
-import "../styles/Home.css";
+import "../styles/WebPortal.css";
 
 const games = [
   { title: "Ahsan, Sapu Terbang, dan Hutan Rahasia", image: `${process.env.PUBLIC_URL}/images/game1.png`, url: "https://kibbitech.github.io/Ahsan-dan-Hutan-Rahasia/" },
